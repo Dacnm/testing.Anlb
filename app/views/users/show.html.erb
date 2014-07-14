@@ -1,0 +1,23 @@
+<% provide(:title, @user.username) %>
+<div class="row">
+  <aside class="span4">
+    <section>
+      <h1>
+        <%= gravatar_for @user %>
+        <%= @user.username %>
+      </h1>
+    </section>
+    <section>
+      <%= render 'shared/stats' %>
+    </section>
+    <section>
+      <%= link_to 'List Favourite', user_favourites_path(@user)  %>
+    </section>
+    <section>
+      <%= link_to 'List Buy Request', user_buys_path(@user)  %>
+    </section>
+  </aside>
+  <div class="span8">
+    <%= render 'follow_form' if signed_in? %>
+  </div>
+</div>
